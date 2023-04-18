@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChamberOfSecrets.CollabChamber.Domain
+namespace ChamberOfSecrets.CollabChamber.Application.DTOs.Common;
+
+public class BaseDto
 {
-    internal class MeetingParticipantJoin
-    {
-    }
+    public int Id { get; set; }
 }
+
+

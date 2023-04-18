@@ -6,9 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ChamberOfSecrets.CollabChamber.Domain;
-public class Meeting : BaseDomainEntity
+
+public class MeetingParticipant : BaseDomainEntity
 {
-    public int CodeEditorId { get; set; }
-    public List<Participant> Participants { get; set; }
-    public CodeEditor CodeEditor { get; set; }
+    public int MeetingId { get; set; }
+    public int ParticipantId { get; set; }
+    public Meeting Meeting { get; set; }
+    public Participant Participant { get; set; }
 }
