@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using ChamberOfSecrets.CollabChamber.Application.DTOs.CodeEditor;
 using ChamberOfSecrets.CollabChamber.Application.DTOs.Meeting;
 using ChamberOfSecrets.CollabChamber.Application.DTOs.Participant;

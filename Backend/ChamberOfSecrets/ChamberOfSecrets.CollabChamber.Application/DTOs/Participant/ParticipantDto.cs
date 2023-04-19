@@ -1,4 +1,4 @@
-﻿using ChamberOfSecrets.CollabChamber.Application.DTOs.Common;
+using ChamberOfSecrets.CollabChamber.Application.DTOs.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

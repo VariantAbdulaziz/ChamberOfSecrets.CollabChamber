@@ -1,4 +1,4 @@
-﻿using ChamberOfSecrets.CollabChamber.Application.DTOs.CodeEditor;
+using ChamberOfSecrets.CollabChamber.Application.DTOs.CodeEditor;
 using System;
 using System.Collections.Generic;
 using System.Linq;

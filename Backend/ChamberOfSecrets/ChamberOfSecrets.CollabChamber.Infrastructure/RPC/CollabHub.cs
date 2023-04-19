@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using ChamberOfSecrets.CollabChamber.Application.Contracts.Infrastructure;
 using ChamberOfSecrets.CollabChamber.Application.Contracts.Persistence;
 using ChamberOfSecrets.CollabChamber.Application.DTOs.CodeEditor;

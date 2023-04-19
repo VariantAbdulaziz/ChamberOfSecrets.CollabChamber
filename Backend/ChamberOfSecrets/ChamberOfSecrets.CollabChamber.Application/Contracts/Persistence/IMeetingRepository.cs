@@ -1,4 +1,4 @@
-﻿using ChamberOfSecrets.CollabChamber.Application.DTOs.CodeEditor;
+using ChamberOfSecrets.CollabChamber.Application.DTOs.CodeEditor;
 using ChamberOfSecrets.CollabChamber.Application.DTOs.Participant;
 using ChamberOfSecrets.CollabChamber.Domain;
 using System;
