@@ -9,5 +9,6 @@ namespace ChamberOfSecrets.CollabChamber.Domain;
 
 public class Participant : BaseDomainEntity
 {
+    public string Name { get; set; }
 }
 
