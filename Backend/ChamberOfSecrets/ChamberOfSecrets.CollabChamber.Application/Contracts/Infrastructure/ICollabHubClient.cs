@@ -9,6 +9,6 @@ namespace ChamberOfSecrets.CollabChamber.Application.Contracts.Infrastructure;
 
 public interface ICollabHubClient
 {
-    Task ReceiveEdit(EditDto message);
+    Task EditReceived(EditDto message);
     Task Dirty();
 }

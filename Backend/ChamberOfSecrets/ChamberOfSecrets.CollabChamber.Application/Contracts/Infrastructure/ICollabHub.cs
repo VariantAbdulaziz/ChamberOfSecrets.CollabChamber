@@ -9,6 +9,6 @@ namespace ChamberOfSecrets.CollabChamber.Application.Contracts.Infrastructure;
 
 public interface ICollabHub
 {
-    Task SendEdit(EditDto edit);
+    Task SendEdit(int meetingId, EditDto edit);
 }
 

@@ -9,5 +9,6 @@ namespace ChamberOfSecrets.CollabChamber.Application.DTOs.Participant;
 
 public class ParticipantDto : BaseDto
 {
-
+    public string Name { get; set; }
+    public string ConnectionId { get; set; }
 }

@@ -1,15 +1,14 @@
-﻿using ChamberOfSecrets.CollabChamber.Domain.Common;
+﻿using ChamberOfSecrets.CollabChamber.Application.DTOs.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChamberOfSecrets.CollabChamber.Domain;
+namespace ChamberOfSecrets.CollabChamber.Application.DTOs.Participant;
 
-public class Participant : BaseDomainEntity
+public class CreateParticipantDto
 {
     public string Name { get; set; }
     public string ConnectionId { get; set; }
 }
-
