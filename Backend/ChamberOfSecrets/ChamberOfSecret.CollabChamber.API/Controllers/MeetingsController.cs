@@ -1,5 +1,7 @@
-﻿using ChamberOfSecrets.CollabChamber.Application.DTOs.Meeting;
+﻿using ChamberOfSecrets.CollabChamber.Application.DTOs.CodeEditor;
+using ChamberOfSecrets.CollabChamber.Application.DTOs.Meeting;
 using ChamberOfSecrets.CollabChamber.Application.DTOs.Participant;
+using ChamberOfSecrets.CollabChamber.Application.Features.Requests;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,17 +19,10 @@ namespace ChamberOfSecret.CollabChamber.API.Controllers
         {
             _mediator = mediator;
         }
-        // GET: api/<MeetingsController>
-        [HttpGet]
-        public async Task<ActionResult> Get([FromBody] ParticipantDto participantDto)
-        {
-            var meetings = await _mediator.Send(new GetMeetingsListRequest(participantDto));
-            return Ok(meetings);
-        }
 
         // GET api/<MeetingsController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult> Get(int id)
+        public async Task<ActionResult<MeetingDto>> Get(int id)
         {
             var meeting = await _mediator.Send(new GetMeetingRequest { Id = id });
             return Ok(meeting);
@@ -35,15 +30,15 @@ namespace ChamberOfSecret.CollabChamber.API.Controllers
 
         // GET api/<MeetingsController>/5/participants
         [HttpGet("{id}/participants")]
-        public async Task<ActionResult> GetParticipants(int id)
+        public async Task<ActionResult<List<ParticipantDto>>> GetParticipants(int id)
         {
             var participants = await _mediator.Send(new GetMeetingParticpantsRequest { Id = id });
             return Ok(participants);
         }
 
         // GET api/<MeetingsController>/5/codeeditor
-        [HttpGet("{id}/participants")]
-        public async Task<ActionResult> GetCodeEditor(int id)
+        [HttpGet("{id}/codeeditor")]
+        public async Task<ActionResult<CodeEditorDto>> GetCodeEditor(int id)
         {
             var participants = await _mediator.Send(new GetCodeEditorRequest { Id = id });
             return Ok(participants);
@@ -51,7 +46,7 @@ namespace ChamberOfSecret.CollabChamber.API.Controllers
 
         // POST api/<MeetingsController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CreateMeetingDto MeetingDto)
+        public async Task<ActionResult<MeetingDto>> Post([FromBody] CreateMeetingDto MeetingDto)
         {
             var meeting = await _mediator.Send(new CreateMeetingRequest { MeetingDto = MeetingDto });
             return Ok(meeting);

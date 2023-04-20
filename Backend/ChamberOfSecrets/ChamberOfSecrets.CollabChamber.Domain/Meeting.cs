@@ -9,6 +9,7 @@ namespace ChamberOfSecrets.CollabChamber.Domain;
 public class Meeting : BaseDomainEntity
 {
     public int CodeEditorId { get; set; }
-    public List<Participant> Participants { get; set; }
-    public CodeEditor CodeEditor { get; set; }
+
+    public List<MeetingParticipant> MeetingParticipants { get; set; }
+    public CodeEditor? CodeEditor { get; set; }
 }

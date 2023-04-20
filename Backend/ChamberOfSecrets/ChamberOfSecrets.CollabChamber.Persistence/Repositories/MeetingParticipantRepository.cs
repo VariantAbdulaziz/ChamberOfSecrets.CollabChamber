@@ -11,22 +11,11 @@ using System.Threading.Tasks;
 
 namespace ChamberOfSecrets.CollabChamber.Application.Contracts.Persistence;
 
-public class MeetingPartipantRepository : GenericRepository<MeetingParticipant>, IMeetingPartipantRepository
+public class MeetingParticipantRepository : GenericRepository<MeetingParticipant>, IMeetingParticipantRepository
 {
-    public MeetingPartipantRepository(CollabChamberDbContext dbContext)
+    public MeetingParticipantRepository(CollabChamberDbContext dbContext)
         : base(dbContext)
     {
-        
-    }
 
-    public Task<MeetingDto> GetMeeting()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<Participant> GetParticipant()
-    {
-        throw new NotImplementedException();
     }
 }
-

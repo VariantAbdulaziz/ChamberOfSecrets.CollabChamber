@@ -17,8 +17,13 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         CreateMap<Meeting, MeetingDto>().ReverseMap();
-        CreateMap<Participant, ParticipantDto>().ReverseMap();
+        CreateMap<Meeting, CreateMeetingDto>().ReverseMap();
+
         CreateMap<CodeEditor, CodeEditorDto>().ReverseMap();
+
+        CreateMap<Participant, ParticipantDto>().ReverseMap();
+        CreateMap<Participant, CreateParticipantDto>().ReverseMap();
+
         CreateMap<Shadow, ShadowDto>().ReverseMap();
     }
 }

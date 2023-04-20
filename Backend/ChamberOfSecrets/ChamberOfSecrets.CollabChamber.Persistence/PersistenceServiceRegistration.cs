@@ -1,4 +1,5 @@
 ﻿using ChamberOfSecrets.CollabChamber.Application.Contracts.Persistence;
+using ChamberOfSecrets.CollabChamber.Infrastructure.RPC;
 using ChamberOfSecrets.CollabChamber.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -24,9 +25,11 @@ public static class PersistenceServicesRegistration
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
         services.AddScoped<ICodeEditorRepository, CodeEditorRepository>();
-        services.AddScoped<IMeetingPartipantRepository, MeetingPartipantRepository>();
+        services.AddScoped<IMeetingParticipantRepository, MeetingParticipantRepository>();
         services.AddScoped<IMeetingRepository, MeetingRepository>();
         services.AddScoped<IParticipantRepository, ParticipantRepository>();
+        services.AddScoped<IConnectionRepository, ConnectionRepository>();
+        services.AddScoped<IShadowRepository, ShadowRepository>();
 
         return services;
     }

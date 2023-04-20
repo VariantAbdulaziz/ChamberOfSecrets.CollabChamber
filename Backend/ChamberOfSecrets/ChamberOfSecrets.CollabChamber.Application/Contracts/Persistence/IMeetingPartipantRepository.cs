@@ -9,9 +9,7 @@ using System.Threading.Tasks;
 
 namespace ChamberOfSecrets.CollabChamber.Application.Contracts.Persistence;
 
-public interface IMeetingPartipantRepository : IGenericRepository<MeetingParticipant>
+public interface IMeetingParticipantRepository : IGenericRepository<MeetingParticipant>
 {
-    Task<MeetingDto> GetMeeting();
-    Task<Participant> GetParticipant();
-}
 
+}

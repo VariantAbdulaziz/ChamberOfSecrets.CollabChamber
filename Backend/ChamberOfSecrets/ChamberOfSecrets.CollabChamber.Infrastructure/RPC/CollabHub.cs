@@ -15,18 +15,20 @@ namespace ChamberOfSecrets.CollabChamber.Infrastructure.RPC;
 
 public class CollabHub : Hub<ICollabHubClient>, ICollabHub
 {
-    private IMeetingRepository _meetingRepository;
-    private IShadowRepository _shadowRepository;
+    private readonly IMeetingRepository _meetingRepository;
+    private readonly IShadowRepository _shadowRepository;
+    private readonly IMapper _mapper;
 
-    public CollabHub(IMeetingRepository meetingRepository, IShadowRepository shadowRepository)
+    public CollabHub(IMeetingRepository meetingRepository, IShadowRepository shadowRepository, IMapper mapper)
     {
         _meetingRepository = meetingRepository;
         _shadowRepository = shadowRepository;
+        _mapper = mapper;
     }
     public async Task SendEdit(int meetingId, EditDto edit)
     {
         var connectionId = Context.ConnectionId;
-        var State = (await _meetingRepository.GetCodeEdtior()).Code;
+        var State = (await _meetingRepository.GetCodeEdtior(meetingId)).Code;
         var shadowbulk = await _shadowRepository.GetOrCreate(connectionId);
         var shadow = shadowbulk.Code;
         diff_match_patch dmp = new diff_match_patch();
@@ -47,7 +49,8 @@ public class CollabHub : Hub<ICollabHubClient>, ICollabHub
             shadow = result[0] as string;
 
         shadowbulk.Code = shadow;
-        await _shadowRepository.Update( new Shadow { ConnectionId = shadowbulk.Connection.Id, Code = shadow });
+        
+        await _shadowRepository.Update(_mapper.Map<Shadow>(shadowbulk) );
         var propagatedEdit = new EditDto { Patches = dmp.patch_toText(patches) };
 
         await Clients.Client(connectionId).EditReceived(propagatedEdit);

@@ -12,7 +12,7 @@ namespace ChamberOfSecrets.CollabChamber.Application.Contracts.Persistence;
 public interface IMeetingRepository : IGenericRepository<Meeting>
 {
     Task<IReadOnlyList<ParticipantDto>> GetParticipants(int meetingId);
-    Task<CodeEditorDto> GetCodeEdtior();
+    Task<CodeEditorDto> GetCodeEdtior(int meetingId);
     Task<ParticipantDto> AddParticipant(int meetingId, CreateParticipantDto particpant);
     Task<ParticipantDto> RemoveParticipant(int meetingId, int particpantId);
 }

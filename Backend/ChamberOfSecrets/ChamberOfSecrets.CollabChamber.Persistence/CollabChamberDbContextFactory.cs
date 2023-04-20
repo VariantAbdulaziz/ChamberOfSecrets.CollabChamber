@@ -15,7 +15,6 @@ public class CollabChamberDbContextFactory : IDesignTimeDbContextFactory<CollabC
     CollabChamberDbContext IDesignTimeDbContextFactory<CollabChamberDbContext>.CreateDbContext(string[] args)
     {
         IConfigurationRoot configuration = new ConfigurationBuilder()
-            .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.json")
             .Build();
 
